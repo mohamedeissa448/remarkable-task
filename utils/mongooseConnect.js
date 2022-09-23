@@ -8,9 +8,9 @@ module.exports = async ()=>{
         .connect(DB, {
             useNewUrlParser: true
         });
-        console.log('DB connection successful!')
+        console.log('DB connection successful!-----------------------------')
     }catch(err){
-        console.log('DB connection failed!', err)
+        console.log('DB connection failed! ---------------------', err)
     }
 };
 
