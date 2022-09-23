@@ -20,17 +20,17 @@ export default async function handler(req, res) {
         }
       }
       catch(err){
-        errorServerResponse(res);
+        errorServerResponse(res,err);
       }
       break;
     case "POST":
       try{
         if(await protect(req,res)){
-          createArticle(req,res);
+          await createArticle(req,res);
         }
       }
       catch(err){
-        errorServerResponse(res);
+        errorServerResponse(res, err);
       }
       break;
     default:

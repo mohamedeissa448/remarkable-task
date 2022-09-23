@@ -1,13 +1,13 @@
-import { server } from '../config'
-import ArticleList from '../components/Articles/ArticleList'
-import AuthCheck from '../components/AuthCheck';
+import { server } from '../../../../config'
+import ArticleList from '../../../../components/Articles/ArticleList'
+import AuthCheck from '../../../../components/AuthCheck';
 import React, { useEffect, useState  } from 'react';
 import { useRouter
  } from 'next/router';
 
  export default function Articles() {
   const router = useRouter();
-  const userID = router.query.userID;
+  const userID = router.query.id;
 
   const [articles, setArticles] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -18,6 +18,7 @@ import { useRouter
     if(userID){
       url += `?owner=${userID}`;
     }
+    console.log("my url::", url)
     const res =  fetch(url, {
       method: 'Get',
       headers: {

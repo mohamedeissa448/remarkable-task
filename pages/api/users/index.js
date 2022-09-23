@@ -1,21 +1,27 @@
 import dbConnect from '../../../utils/mongooseConnect';
-import {  login, 
-} from '../../../controllers/authController';
+import {  getAllUsers
+} from '../../../controllers/userController';
 import errorServerResponse from "../../../utils/serverError";
+import {protect} from "../../../controllers/authController";
 
 dbConnect();
 
 export default async function handler(req, res) {
   const { method } = req;
   switch (method) {
-    case "POST":
+    case "GET":
       try{
-        await login(req,res);
+        if(await protect(req,res)){
+         
+            await getAllUsers(req,res);
+        
+        }
       }
       catch(err){
-        errorServerResponse(res, err)
+        errorServerResponse(res, err);
       }
       break;
+      
     default:
       return res.status(400).json({ msg: "This method is not supported" });
   }

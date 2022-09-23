@@ -8,12 +8,15 @@ const articleSchema = new Schema(
       unique: true,
       trim: true,
       maxlength: [40, 'An article title must have less or equal then 40 characters'],
-      minlength: [10, 'An article title must have more or equal then 10 characters']
+      minlength: [5, 'An article title must have more or equal then 5 characters']
     },
     content: {
       type: String,
       trim: true,
-      required: [true, 'An article  must have a content']
+      required: [true, 'An article  must have a content'],
+      maxlength: [40, 'An article title must have less or equal then 40 characters'],
+      minlength: [5, 'An article title must have more or equal then 5 characters']
+
     },
     createdAt: {
       type: Date,
