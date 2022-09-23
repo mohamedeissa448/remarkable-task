@@ -1,6 +1,5 @@
 import { server } from '../config'
 import ArticleList from '../components/Articles/ArticleList'
-import AuthCheck from '../components/AuthCheck';
 import React, { useEffect, useState  } from 'react';
 import { useRouter
  } from 'next/router';

@@ -1,6 +1,5 @@
 import { server } from '../../config';
 import UserList from '../../components/Users/UserList';
-import isUserLoggedIn from '../../helpers/isUserLogged';
 import React, { useEffect, useState  } from 'react';
 import { useRouter } from 'next/router'
 
